@@ -57,7 +57,7 @@
     .brand::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); margin-right: 8px; vertical-align: 2px; }
 
     /* Hero */
-    header.hero { padding: 32px 0 56px; }
+    header.hero { padding: 40px 0 56px; }
     .hero-grid { display: grid; grid-template-columns: 1fr 240px; gap: 48px; align-items: center; }
     .eyebrow { color: var(--gold); font-weight: 600; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 12px; }
     h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.05; letter-spacing: -.03em; margin: 0 0 18px; }
@@ -83,7 +83,7 @@
     h2::after { content: ""; display: block; width: 44px; height: 3px; border-radius: 2px; background: var(--gold); margin-top: 10px; }
     .about p { max-width: 46em; margin: 0 0 14px; }
 
-    .stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 28px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 44px; }
     .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
     .stat b { display: block; font-size: 28px; letter-spacing: -.02em; color: var(--gold); line-height: 1.1; }
     .stat span { font-size: 13px; color: var(--muted); }
@@ -135,7 +135,7 @@
     .fine { font-size: 13px; color: var(--muted); margin-top: 32px; }
 
     /* Live forecast chart */
-    .fc-card { background: rgba(5,32,42,.55); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px 12px; margin-bottom: 44px; box-shadow: var(--shadow); }
+    .fc-card { margin-left: 0; margin-right: 0; background: rgba(5,32,42,.55); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px 12px; margin: 28px 0 0; box-shadow: var(--shadow); }
     .fc-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 8px; }
     .fc-title { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
     .fc-live { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(248,192,0,.6); animation: fc-pulse 1.8s infinite; }
@@ -156,7 +156,7 @@
     @media (prefers-reduced-motion: reduce) { .fc-live { animation: none; } }
 
     @media (max-width: 860px) {
-      .stats { grid-template-columns: repeat(3, 1fr); }
+      .stats { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 720px) {
       header.hero { padding: 20px 0 40px; }
@@ -168,7 +168,7 @@
       .edu-item { flex-direction: column; gap: 4px; }
       .links { gap: 16px; }
       #fc-canvas { height: 190px; }
-      .fc-card { margin-bottom: 32px; padding: 14px 12px 10px; }
+      .fc-card { margin-top: 20px; padding: 14px 12px 10px; }
       .fc-note { margin-left: 0; }
     }
     @media (max-width: 480px) {
@@ -197,23 +197,6 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="wrap">
-    <figure class="fc-card" style="margin-left:0;margin-right:0">
-      <div class="fc-head">
-        <div class="fc-title"><span class="fc-live" aria-hidden="true"></span>Demand forecasting, live</div>
-        <div class="fc-readout" id="fc-readout" aria-live="off">Day <b>—</b> · next 14 days · rolling MAPE <b>—</b></div>
-        <button class="fc-toggle" id="fc-toggle" type="button" aria-pressed="false">Pause</button>
-      </div>
-      <canvas id="fc-canvas" role="img" aria-label="Animated chart: daily demand history scrolls in day by day with weekly seasonality, and a 14-day forecast with an 80% uncertainty band is re-computed after each new day."></canvas>
-      <figcaption class="fc-legend">
-        <span><i class="l-act"></i>Actual demand</span>
-        <span><i class="l-fc"></i>14-day forecast</span>
-        <span><i class="l-band"></i>80% interval</span>
-        <span><i class="l-old"></i>Earlier forecasts</span>
-        <span class="fc-note">Illustrative data · Holt-Winters style model</span>
-      </figcaption>
-    </figure>
-  </div>
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">AI Engineer · Data Scientist · PhD Physics</p>
@@ -250,6 +233,31 @@
     </div>
     <img class="photo" src="assets/photo.jpg" alt="Portrait of Shanu Dengre" width="600" height="701">
   </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>+20%</b><span>forecast accuracy in holiday &amp; offer seasons</span></div>
+      <div class="stat"><b>−15%</b><span>food waste through AI demand forecasting</span></div>
+      <div class="stat"><b>300+</b><span>locations served in production</span></div>
+      <div class="stat"><b>10+</b><span>restaurant chains running my vision models</span></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <figure class="fc-card">
+      <div class="fc-head">
+        <div class="fc-title"><span class="fc-live" aria-hidden="true"></span>Demand forecasting, live</div>
+        <div class="fc-readout" id="fc-readout" aria-live="off">Day <b>—</b> · next 14 days · rolling MAPE <b>—</b></div>
+        <button class="fc-toggle" id="fc-toggle" type="button" aria-pressed="false">Pause</button>
+      </div>
+      <canvas id="fc-canvas" role="img" aria-label="Animated chart: daily demand history scrolls in day by day with weekly seasonality, and a 14-day forecast with an 80% uncertainty band is re-computed after each new day."></canvas>
+      <figcaption class="fc-legend">
+        <span><i class="l-act"></i>Actual demand</span>
+        <span><i class="l-fc"></i>14-day forecast</span>
+        <span><i class="l-band"></i>80% interval</span>
+        <span><i class="l-old"></i>Earlier forecasts</span>
+        <span class="fc-note">Illustrative data · Holt-Winters style model</span>
+      </figcaption>
+    </figure>
+  </div>
 </header>
 
 <main>
@@ -258,14 +266,6 @@
       <h2>About</h2>
       <p>I'm an AI Engineer and Senior Data Scientist with 4+ years of experience taking ML systems from problem scoping to production, across time series forecasting, computer vision and LLM automation. I hold a PhD in Physics from TU Dresden.</p>
       <p>I enjoy working closely with customers — understanding their operations and economics, integrating with their data, and shipping practical, reliable AI that solves real business problems.</p>
-      <div class="stats">
-        <div class="stat"><b>+20%</b><span>forecast accuracy in holiday &amp; offer seasons</span></div>
-        <div class="stat"><b>−15%</b><span>food waste through AI demand forecasting</span></div>
-        <div class="stat"><b>300+</b><span>locations served in production</span></div>
-        <div class="stat"><b>10+</b><span>restaurant chains running my vision models</span></div>
-        <div class="stat"><b>−50%</b><span>forecast model retraining time</span></div>
-        <div class="stat"><b>−60%</b><span>query latency via FastAPI microservices</span></div>
-      </div>
     </div>
   </section>
 
@@ -351,13 +351,11 @@
           <h3>Sr. Data Scientist</h3>
           <p class="role">Demand Forecast Project Lead</p>
           <ul>
-            <li>Lead the demand forecast project end to end, from customer scoping to features in production.</li>
-            <li>Developed an in-house newsvendor-based ordering optimisation balancing margin against stockout risk, tuning forecast quantiles to each customer's requirements to minimise food waste without losing sales. <a class="try" href="https://newsvendorproblem.streamlit.app/" target="_blank" rel="noopener">Try the app ↗</a></li>
-            <li>Innovated forecasting solutions improving sales forecasts by 20% during holiday and offer seasons.</li>
-            <li>Deployed automated POS integration pipelines for faster customer onboarding.</li>
-            <li>Enhanced pipeline observability with Sentry and PowerBI dashboards — negligible downtime with state-of-the-art accuracy across 300+ locations.</li>
-            <li>Built LLM-powered agentic workflows (tool-calling agents) to automate internal analytics and reporting.</li>
-            <li>Automated customer food waste reports, reducing manual effort by 50%.</li>
+            <li>Lead the demand forecast project end to end, from customer scoping to features in production across <b>300+ locations</b>.</li>
+            <li>Built an in-house newsvendor-based ordering optimiser that tunes forecast quantiles to each customer's margin and stockout risk, minimising food waste without losing sales. <a class="try" href="https://newsvendorproblem.streamlit.app/" target="_blank" rel="noopener">Try the app ↗</a></li>
+            <li>Improved sales forecasts by <b>20%</b> during holiday and offer seasons.</li>
+            <li>Automated POS integration for faster onboarding, and Sentry/PowerBI observability for negligible downtime.</li>
+            <li>Built LLM tool-calling agents for internal analytics, and automated customer food waste reports (<b>−50%</b> manual effort).</li>
           </ul>
         </div>
       </div>
