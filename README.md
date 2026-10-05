@@ -1,4 +1,4 @@
-# Shanu Dengre — personal website
+# Dr. Shanu Dengre — personal website
 
 A static one-page site (`index.html` + `assets/`), hosted on GitHub Pages. There is no build step.
 
