@@ -33,6 +33,15 @@ Then open http://localhost:8000.
    Then click **Save**.
 4. After 1–2 minutes the site is live at **https://shanudengre82.github.io**. Progress shows under the repo's **Actions** tab.
 
+## Keeping the demos awake
+
+The hosted demos sleep when idle (Render free tier after ~15 min, Streamlit Community Cloud after ~12 h). The workflow `.github/workflows/keep-alive.yml` runs `scripts/keep_alive.py` on GitHub's servers:
+
+- every 10 minutes it requests the Render app (cold start tolerated, retries, fails loudly if the app is down);
+- every 6 hours it opens the Streamlit app in headless Chromium and clicks "get this app back up" if it was asleep.
+
+Add another app by adding a line to `APPS` in the script. Run it by hand from the **Actions** tab (*Run workflow*) or locally with `python scripts/keep_alive.py --mode http`. GitHub pauses scheduled workflows after 60 days without repo activity; re-enable under Actions if that happens. The workflow only runs from the `main` branch.
+
 ## Updating the site
 
 ```bash
