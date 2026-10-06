@@ -97,6 +97,11 @@
     .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
     .stat b { display: block; font-size: 28px; letter-spacing: -.02em; color: var(--gold); line-height: 1.1; }
     .stat span { font-size: 13px; color: var(--muted); }
+    .stats-cv { margin-top: 14px; }
+
+    /* KPI chips in experience */
+    .kpis { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .kpi { background: rgba(248,192,0,.15); color: #ffd84a; border: 1px solid rgba(248,192,0,.3); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; }
 
     .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); transition: border-color .2s ease; }
@@ -112,9 +117,10 @@
     .job .when b::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--gold); margin-right: 8px; vertical-align: 1px; }
     .job h3 { margin: 0; font-size: 19px; }
     .role { color: var(--accent); font-weight: 600; margin: 2px 0 12px; }
-    .job h4 { margin: 16px 0 6px; font-size: 15px; color: var(--muted); font-weight: 600; }
+    .job h4 { margin: 16px 0 6px; font-size: 15px; color: var(--muted); font-weight: 600; border-left: 3px solid var(--gold); padding-left: 10px; }
     .job ul { margin: 0; padding-left: 20px; }
     .job li { margin: 4px 0; }
+    .job li b { color: var(--gold-light); }
 
     /* Apps */
     .app { display: grid; grid-template-columns: 340px 1fr; gap: 28px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; box-shadow: var(--shadow); }
@@ -158,6 +164,7 @@
     .fc-toggle { background: transparent; border: 1px solid var(--line); color: var(--muted); border-radius: 8px; font: inherit; font-size: 12px; padding: 3px 10px; cursor: pointer; }
     .fc-toggle:hover { color: var(--gold-light); border-color: var(--gold); }
     #fc-canvas { display: block; width: 100%; height: 230px; }
+    #cv-canvas { display: block; width: 100%; height: 260px; }
     .fc-legend { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 12.5px; color: var(--muted); margin-top: 6px; }
     .fc-legend span { display: inline-flex; align-items: center; gap: 6px; }
     .fc-legend i { display: inline-block; width: 18px; height: 0; border-top: 2.5px solid; }
@@ -165,6 +172,9 @@
     .fc-legend .l-fc { border-color: var(--gold); border-top-style: dashed; }
     .fc-legend .l-band { height: 10px; border: 0; background: rgba(248,192,0,.22); border-radius: 2px; }
     .fc-legend .l-old { border-color: rgba(248,192,0,.35); border-top-width: 1.5px; }
+    .fc-legend .l-mask { height: 10px; border: 0; background: rgba(0,208,232,.2); border: 1px solid rgba(0,208,232,.5); border-radius: 2px; }
+    .fc-legend .l-track { border-color: var(--gold); border-top-width: 2px; }
+    .fc-legend .l-pos { border-color: #4ade80; border-top-width: 2px; }
     .fc-note { margin-left: auto; font-style: italic; }
     @media (prefers-reduced-motion: reduce) { .fc-live { animation: none; } }
 
@@ -222,6 +232,7 @@
       .links { gap: 16px; }
       .footer-content { grid-template-columns: 1fr; gap: 28px; }
       #fc-canvas { height: 190px; }
+      #cv-canvas { height: 190px; }
       .fc-card { margin-top: 20px; padding: 14px 12px 10px; }
       .fc-note { margin-left: 0; }
     }
@@ -299,6 +310,12 @@
       <div class="stat"><b>300+</b><span>locations served in production</span></div>
       <div class="stat"><b>10+</b><span>restaurant chains running my vision models</span></div>
     </div>
+    <div class="stats stats-cv">
+      <div class="stat"><b>95%</b><span>live POS order-matching accuracy</span></div>
+      <div class="stat"><b>−50%</b><span>annotation time with SAM &amp; OpenCV</span></div>
+      <div class="stat"><b>5+</b><span>restaurant chains with object detection &amp; tracking</span></div>
+      <div class="stat"><b>Real-time</b><span>detection, segmentation &amp; tracking</span></div>
+    </div>
   </div>
   <div class="wrap">
     <figure class="fc-card">
@@ -315,6 +332,21 @@
         <span><i class="l-band"></i>80% interval</span>
         <span><i class="l-old"></i>Earlier forecasts</span>
         <span class="fc-note">Illustrative data · Holt-Winters style model</span>
+      </figcaption>
+    </figure>
+    <figure class="fc-card cv-card">
+      <div class="fc-head">
+        <div class="fc-title"><span class="fc-live" aria-hidden="true"></span>Computer vision, live</div>
+        <div class="fc-readout" id="cv-readout" aria-live="off">Tracking <b>0</b> objects · order <b>0</b>/<b>0</b> matched</div>
+        <button class="fc-toggle" id="cv-toggle" type="button" aria-pressed="false">Pause</button>
+      </div>
+      <canvas id="cv-canvas" role="img" aria-label="Animated scene: food items on a conveyor belt are detected, segmented with masks, tracked with IDs and motion trails, and matched to a POS order on the right."></canvas>
+      <noscript><p class="fc-legend">Animated computer vision simulation (needs JavaScript).</p></noscript>
+      <figcaption class="fc-legend">
+        <span><i class="l-mask"></i>Segmentation mask</span>
+        <span><i class="l-track"></i>Track ID &amp; trail</span>
+        <span><i class="l-pos"></i>POS match</span>
+        <span class="fc-note">Illustrative simulation · Object detection, tracking &amp; matching</span>
       </figcaption>
     </figure>
   </div>
@@ -378,12 +410,17 @@
         <div>
           <h3>Sr. Data Scientist</h3>
           <p class="role">Demand Forecast Project Lead</p>
+          <div class="kpis">
+            <span class="kpi">300+ locations</span>
+            <span class="kpi">+20% forecast</span>
+            <span class="kpi">−50% manual effort</span>
+          </div>
           <ul>
             <li>Lead the demand forecast project end to end, from customer scoping to features in production across <b>300+ locations</b>.</li>
-            <li>Built an in-house newsvendor-based ordering optimiser that tunes forecast quantiles to each customer's margin and stockout risk, minimising food waste without losing sales. <a class="try" href="https://newsvendorproblem.streamlit.app/" target="_blank" rel="noopener">Try the app ↗</a></li>
+            <li>Built an <b>in-house newsvendor-based ordering optimiser</b> that tunes forecast quantiles to each customer's margin and stockout risk, minimising food waste without losing sales. <a class="try" href="https://newsvendorproblem.streamlit.app/" target="_blank" rel="noopener">Try the app ↗</a></li>
             <li>Improved sales forecasts by <b>20%</b> during holiday and offer seasons.</li>
-            <li>Automated POS integration for faster onboarding, and Sentry/PowerBI observability for negligible downtime.</li>
-            <li>Built LLM tool-calling agents for internal analytics, and automated customer food waste reports (<b>−50%</b> manual effort).</li>
+            <li>Automated <b>POS integration</b> for faster onboarding, and <b>Sentry/PowerBI observability</b> for negligible downtime.</li>
+            <li>Built <b>LLM tool-calling agents</b> for internal analytics, and automated customer food waste reports (<b>−50%</b> manual effort).</li>
           </ul>
         </div>
       </div>
@@ -392,11 +429,19 @@
         <div class="when"><b>PreciTaste</b>Munich<br>Feb 2022 – Oct 2025</div>
         <div>
           <h3>AI Engineer and Data Scientist</h3>
+          <div class="kpis">
+            <span class="kpi">−15% food waste</span>
+            <span class="kpi">+20% crew efficiency</span>
+            <span class="kpi">−60% query latency</span>
+            <span class="kpi">5+ chains</span>
+            <span class="kpi">95% POS match</span>
+            <span class="kpi">−50% annotation time</span>
+          </div>
           <h4>Time series forecasting — sales and demand</h4>
           <ul>
-            <li>Led AI-driven demand forecasting, reducing food waste by 15% and improving crew efficiency by 20%.</li>
-            <li>Designed an automated forecasting pipeline using DARTS, cutting retraining time by 50%.</li>
-            <li>Reduced query latency by 60% using FastAPI microservices with MongoDB, Docker and Kubernetes.</li>
+            <li>Led AI-driven demand forecasting, reducing food waste by <b>15%</b> and improving crew efficiency by <b>20%</b>.</li>
+            <li>Designed an automated forecasting pipeline using DARTS, cutting retraining time by <b>50%</b>.</li>
+            <li>Reduced query latency by <b>60%</b> using FastAPI microservices with MongoDB, Docker and Kubernetes.</li>
           </ul>
           <h4>Computer vision — object detection and segmentation</h4>
           <ul>
@@ -892,6 +937,182 @@
   resize(); updateReadout();
   for (var s = 0; s < 40; s++) draw(0); // settle the y-range before first paint
   play();
+})();
+</script>
+<script>
+/* Live computer vision demo: object detection, tracking and POS order matching */
+(function () {
+  var canvas = document.getElementById('cv-canvas');
+  if (!canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var readout = document.getElementById('cv-readout');
+  var toggle = document.getElementById('cv-toggle');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var ITEMS = ['burger', 'fries', 'drink', 'wrap'], STEP_MS = 800, TRAIL = 8, MAX_MISS = 5;
+  var seed = 20261006;
+  function rand() { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
+
+  // Food item pipeline: left-to-right conveyor
+  var items = [], nextId = 0, time = 0;
+  function spawnItem() {
+    items.push({ id: nextId++, type: ITEMS[Math.floor(rand() * ITEMS.length)], x: -20, y: 60 + rand() * 100, vx: 30 + rand() * 20, detected: false, missCount: 0, trail: [] });
+  }
+
+  // Tracker: nearest-centroid with ID persistence
+  var tracks = {}, trackCounter = 0;
+  function updateTracks(dets) {
+    // Match detections to existing tracks
+    var matched = {}, used = {};
+    dets.forEach(function (det) {
+      var best = null, bestDist = Infinity;
+      Object.keys(tracks).forEach(function (tid) {
+        var tr = tracks[tid];
+        if (used[tid]) return;
+        var d = Math.hypot(det.x - tr.x, det.y - tr.y);
+        if (d < bestDist && d < 40) { bestDist = d; best = tid; }
+      });
+      if (best) { used[best] = true; matched[best] = det; }
+      else { tracks[trackCounter] = { id: trackCounter, x: det.x, y: det.y, vx: 0, vy: 0, trail: [], matched: false, matchTime: -1 }; trackCounter++; }
+    });
+    // Age tracks
+    Object.keys(tracks).forEach(function (tid) {
+      var tr = tracks[tid];
+      if (matched[tid]) {
+        tr.vx = matched[tid].x - tr.x; tr.vy = matched[tid].y - tr.y;
+        tr.x = matched[tid].x; tr.y = matched[tid].y;
+        tr.missCount = 0;
+      } else {
+        tr.x += tr.vx * 0.8; tr.y += tr.vy * 0.8;
+        tr.missCount = (tr.missCount || 0) + 1;
+      }
+      tr.trail.push({ x: tr.x, y: tr.y });
+      if (tr.trail.length > TRAIL) tr.trail.shift();
+      if (tr.missCount > MAX_MISS) delete tracks[tid];
+    });
+  }
+
+  var order = [], orderIdx = 0, orderMatched = [];
+  function newOrder() { order = [ITEMS[Math.floor(rand() * 4)], ITEMS[Math.floor(rand() * 4)], ITEMS[Math.floor(rand() * 4)]].slice(0, 2 + Math.floor(rand() * 2)); orderMatched = []; orderIdx = 0; }
+  newOrder();
+
+  var W = 0, Hpx = 0, dpr = 1;
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var r = canvas.getBoundingClientRect(); W = r.width; Hpx = r.height;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(Hpx * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    draw(0);
+  }
+
+  function draw(p) {
+    if (!W) return;
+    ctx.fillStyle = 'rgba(5,32,42,.8)'; ctx.fillRect(0, 0, W, Hpx);
+    ctx.strokeStyle = 'rgba(255,255,255,.08)'; ctx.lineWidth = 1;
+    for (var g = 0; g <= 3; g++) { var gy = g * Hpx / 3; ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke(); }
+    var PASS_X = W * 0.7;
+    ctx.strokeStyle = 'rgba(0,208,232,.3)'; ctx.lineWidth = 2; ctx.setLineDash([5, 3]);
+    ctx.beginPath(); ctx.moveTo(PASS_X, 0); ctx.lineTo(PASS_X, Hpx); ctx.stroke(); ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(0,208,232,.05)'; ctx.fillRect(PASS_X, 0, W - PASS_X, Hpx);
+
+    // Draw items and detections
+    var dets = [];
+    items.forEach(function (it) {
+      var x = it.x + it.vx * p;
+      // Mock detector
+      if (x > 0 && x < W - 20 && rand() > 0.15) {
+        var dx = x + (rand() - 0.5) * 10, dy = it.y + (rand() - 0.5) * 10;
+        dets.push({ x: dx, y: dy, w: 20, h: 25, conf: 0.8 + rand() * 0.2 });
+        // Draw segmentation mask
+        ctx.fillStyle = 'rgba(0,208,232,.2)'; ctx.fillRect(dx - 10, dy - 12.5, 20, 25);
+        ctx.strokeStyle = 'rgba(0,208,232,.6)'; ctx.lineWidth = 1.5; ctx.strokeRect(dx - 10, dy - 12.5, 20, 25);
+      }
+    });
+
+    // Update and draw tracks
+    updateTracks(dets);
+    Object.keys(tracks).forEach(function (tid) {
+      var tr = tracks[tid];
+      // Draw trail
+      ctx.strokeStyle = 'rgba(248,192,0,.4)'; ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      tr.trail.forEach(function (p, i) { i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y); });
+      ctx.stroke();
+      // Draw ID circle
+      ctx.fillStyle = '#f8c000'; ctx.font = 'bold 11px -apple-system'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.beginPath(); ctx.arc(tr.x, tr.y, 8, 0, 2 * Math.PI); ctx.fillStyle = 'rgba(248,192,0,.8)'; ctx.fill();
+      ctx.fillStyle = '#05202a'; ctx.fillText('#' + tr.id, tr.x, tr.y);
+      // Check POS match at pass line
+      if (tr.x >= PASS_X && tr.x <= PASS_X + 30 && !tr.matched && orderIdx < order.length) {
+        tr.matched = true; tr.matchTime = time; orderMatched.push(order[orderIdx]); orderIdx++;
+      }
+      // Draw match indicator
+      if (tr.matched) {
+        ctx.strokeStyle = '#4ade80'; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(tr.x, tr.y, 15, 0, 2 * Math.PI); ctx.stroke();
+      }
+    });
+
+    // Draw POS ticket on right
+    var ticketX = W - 60, ticketY = 10, ticketH = order.length * 18 + 20;
+    ctx.fillStyle = 'rgba(5,32,42,.9)'; ctx.strokeStyle = 'rgba(248,192,0,.4)'; ctx.lineWidth = 1;
+    ctx.fillRect(ticketX - 45, ticketY, 90, ticketH); ctx.strokeRect(ticketX - 45, ticketY, 90, ticketH);
+    ctx.fillStyle = '#ffd84a'; ctx.font = 'bold 10px monospace'; ctx.textAlign = 'right'; ctx.fillText('Order', W - 12, ticketY + 12);
+    order.forEach(function (item, i) {
+      ctx.fillStyle = orderMatched.includes(item) && orderMatched.filter(function (x) { return x === item; }).length > i ? '#4ade80' : '#9fadb0';
+      ctx.font = '9px monospace'; ctx.fillText('✓ ' + item.slice(0, 4), W - 12, ticketY + 28 + i * 18);
+    });
+    if (orderIdx === order.length && orderIdx > 0) {
+      ctx.fillStyle = 'rgba(74,222,128,.3)'; ctx.fillRect(ticketX - 45, ticketY, 90, ticketH);
+      ctx.fillStyle = '#4ade80'; ctx.font = 'bold 11px -apple-system'; ctx.textAlign = 'center'; ctx.fillText('Matched!', W - 10, Hpx / 2);
+    }
+
+    ctx.save();
+    ctx.beginPath(); ctx.rect(0, 0, W * 0.68, Hpx); ctx.clip();
+    // Animate items across
+    items.forEach(function (it) {
+      var x = it.x + it.vx * p;
+      if (x > W) return;
+      var colors = { burger: '#d97706', fries: '#f59e0b', drink: '#f87171', wrap: '#60a5fa' };
+      ctx.fillStyle = colors[it.type]; ctx.fillRect(x - 10, it.y - 12.5, 20, 25); ctx.strokeStyle = 'rgba(255,255,255,.2)'; ctx.lineWidth = 0.5; ctx.strokeRect(x - 10, it.y - 12.5, 20, 25);
+    });
+    ctx.restore();
+  }
+
+  function updateReadout() {
+    var nTracks = Object.keys(tracks).length;
+    readout.innerHTML = 'Tracking <b>' + nTracks + '</b> objects · order <b>' + orderIdx + '</b>/<b>' + order.length + '</b> matched';
+  }
+
+  var stepMs = reduce ? 1600 : STEP_MS, playing = true, start = null, lastP = 0, raf = null;
+  function frame(ts) {
+    if (start === null) start = ts;
+    var p = Math.min(1, (ts - start) / stepMs);
+    var eased = reduce ? 0 : (p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2);
+    lastP = eased; draw(eased);
+    if (p >= 1) {
+      time++; items.forEach(function (it) { it.x += it.vx; });
+      items = items.filter(function (it) { return it.x < W; });
+      if (time % 3 === 0 && items.length < 4) spawnItem();
+      if (orderIdx === order.length && time % 30 === 0) newOrder();
+      updateReadout(); start = ts; lastP = 0; draw(0);
+    }
+    raf = playing ? requestAnimationFrame(frame) : null;
+  }
+  function play() { if (raf) return; playing = true; start = null; raf = requestAnimationFrame(frame); toggle.textContent = 'Pause'; toggle.setAttribute('aria-pressed', 'false'); }
+  function pause() { playing = false; if (raf) cancelAnimationFrame(raf); raf = null; toggle.textContent = 'Play'; toggle.setAttribute('aria-pressed', 'true'); }
+
+  toggle.addEventListener('click', function () { playing ? pause() : play(); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden && raf) { cancelAnimationFrame(raf); raf = null; } else if (!document.hidden && playing && inView && !raf) { start = null; raf = requestAnimationFrame(frame); } });
+
+  var inView = true;
+  if (window.IntersectionObserver) new IntersectionObserver(function (es) {
+    inView = es[0].isIntersecting;
+    if (!inView && raf) { cancelAnimationFrame(raf); raf = null; }
+    else if (inView && playing && !raf && !document.hidden) { start = null; raf = requestAnimationFrame(frame); }
+  }).observe(canvas);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas); else window.addEventListener('resize', resize);
+
+  resize(); updateReadout(); play();
 })();
 </script>
 <script>
