@@ -58,6 +58,7 @@
     nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
     .brand { font-weight: 700; color: var(--text); letter-spacing: -.01em; white-space: nowrap; }
     .brand:hover { text-decoration: none; }
+    .brand-roles { font-weight: 500; color: var(--muted); font-size: 14px; }
     .links { display: flex; gap: 22px; font-size: 14px; overflow-x: auto; scrollbar-width: none; }
     .links::-webkit-scrollbar { display: none; }
     .links a { color: var(--muted); white-space: nowrap; }
@@ -68,7 +69,7 @@
     header.hero { padding: 40px 0 56px; }
     .hero-grid { display: grid; grid-template-columns: 1fr 240px; gap: 48px; align-items: center; }
     .eyebrow { color: var(--gold); font-weight: 600; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 12px; }
-    h1 { font-size: clamp(36px, 6vw, 56px); line-height: 1.05; letter-spacing: -.03em; margin: 0 0 18px; }
+    h1 { font-size: clamp(44px, 8vw, 72px); line-height: 1.05; letter-spacing: -.03em; margin: 0 0 18px; }
     .lede { font-size: 19px; color: var(--muted); max-width: 40em; margin: 0 0 28px; }
     .photo { width: 240px; height: auto; aspect-ratio: 6/7; object-fit: cover; border-radius: 20px; box-shadow: 0 0 0 3px var(--bg-deep), 0 0 0 5px var(--gold), var(--shadow); }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 22px; }
@@ -163,6 +164,9 @@
     .fc-note { margin-left: auto; font-style: italic; }
     @media (prefers-reduced-motion: reduce) { .fc-live { animation: none; } }
 
+    @media (max-width: 1000px) {
+      .brand-roles { display: none; }
+    }
     @media (max-width: 860px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
@@ -192,7 +196,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">Dr. Shanu Dengre</a>
+    <a class="brand" href="#top">Dr. Shanu Dengre<span class="brand-roles"> · AI Engineer · Data Scientist · ML Engineer</span></a>
     <div class="links">
       <a href="#about">About</a>
       <a href="#work">What I do</a>
