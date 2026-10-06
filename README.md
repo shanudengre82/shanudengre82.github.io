@@ -63,6 +63,9 @@ git push
 
 To refresh the downloadable CV, recompile `CV/Shanu_Dengre_CV.tex`, copy the new `Shanu_Dengre_CV.pdf` into `assets/`, and push.
 
+### Freelance enquiry form
+The form on the **Freelance** section uses a `mailto:` link (no backend or third-party service required). When a user submits the form, their browser's email app opens with a pre-filled message to `shanudengre82@gmail.com`. To edit the form fields, email recipient, or freelance services offered, edit the `#enquiry` form in `index.html` (search for "Freelance enquiry form" in the script section for the mailto handler).
+
 ## Optional
 
 - **Custom domain:** in Settings → Pages → Custom domain, enter your domain. Then add the DNS records GitHub shows you at your domain registrar.

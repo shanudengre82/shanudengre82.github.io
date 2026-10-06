@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dr. Shanu Dengre · AI Engineer</title>
-  <meta name="description" content="Dr. Shanu Dengre — AI Engineer and Senior Data Scientist (PhD Physics). Forecasting, computer vision and LLM solutions shipped to production across 300+ locations.">
-  <meta property="og:title" content="Dr. Shanu Dengre · AI Engineer">
-  <meta property="og:description" content="AI Engineer and Senior Data Scientist (PhD Physics). Forecasting, computer vision and LLM solutions in production.">
+  <title>Dr. Shanu Dengre · AI Engineer & Freelance</title>
+  <meta name="description" content="Dr. Shanu Dengre — AI Engineer and Senior Data Scientist (PhD Physics). Available for freelance: computer vision, time-series forecasting, LLM fine-tuning, agentic workflows. 300+ locations in production.">
+  <meta property="og:title" content="Dr. Shanu Dengre · AI Engineer & Freelance">
+  <meta property="og:description" content="AI Engineer & Data Scientist (PhD Physics). Freelance: computer vision, forecasting, LLM fine-tuning, agentic workflows. Hiring? Open to full-time roles.">
   <meta property="og:image" content="https://www.shanudengre.com/assets/photo.jpg">
   <meta property="og:url" content="https://www.shanudengre.com/">
   <meta name="twitter:card" content="summary">
@@ -86,7 +86,9 @@
     .meta svg { width: 16px; height: 16px; }
 
     /* Sections */
-    section { padding: 56px 0; border-top: 1px solid var(--line); }
+    section { padding: 56px 0; border-top: 1px solid var(--line); scroll-margin-top: 72px; }
+    section:nth-of-type(even) { background: rgba(0,0,0,.06); }
+    footer { scroll-margin-top: 72px; }
     h2 { font-size: 28px; letter-spacing: -.02em; margin: 0 0 28px; }
     h2::after { content: ""; display: block; width: 44px; height: 3px; border-radius: 2px; background: var(--gold); margin-top: 10px; }
     .about p { max-width: 46em; margin: 0 0 14px; }
@@ -97,7 +99,8 @@
     .stat span { font-size: 13px; color: var(--muted); }
 
     .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); transition: border-color .2s ease; }
+    .card:hover { border-color: var(--gold); }
     .card h3 { margin: 0 0 8px; font-size: 18px; }
     .card p { margin: 0; color: var(--muted); font-size: 15px; }
 
@@ -127,7 +130,7 @@
     .try { font-size: 14px; white-space: nowrap; }
 
     /* Skills */
-    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 32px; }
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 32px; }
     .skills h3 { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 10px; }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag { background: var(--accent-soft); color: #79d8ec; border: 1px solid rgba(0,208,232,.22); border-radius: 999px; padding: 4px 12px; font-size: 14px; }
@@ -165,18 +168,59 @@
     .fc-note { margin-left: auto; font-style: italic; }
     @media (prefers-reduced-motion: reduce) { .fc-live { animation: none; } }
 
+    /* Freelance section */
+    .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
+    .service-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); transition: border-color .2s ease; }
+    .service-card:hover { border-color: var(--gold); }
+    .service-icon { width: 36px; height: 36px; margin-bottom: 14px; color: var(--gold); }
+    .service-card h3 { margin: 0 0 8px; font-size: 18px; }
+    .service-card .pitch { margin: 0 0 14px; color: var(--muted); font-size: 15px; }
+    .service-card .proof { margin-top: 12px; font-size: 14px; color: var(--muted); }
+    .service-card .proof a { color: var(--accent); }
+
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 44px 0; }
+    .process-step { text-align: center; position: relative; }
+    .process-step::after { content: ""; position: absolute; top: 24px; right: -10px; width: 20px; height: 2px; background: var(--gold); }
+    .process-step:last-child::after { display: none; }
+    .process-num { display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--gold); color: #05202a; font-weight: 700; font-size: 18px; margin: 0 auto 12px; }
+    .process-step h4 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+    .process-step p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .engagement { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+    .engagement-item { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; text-align: center; }
+    .engagement-item h4 { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+    .engagement-item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    #enquiry { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px; margin-top: 32px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: rgba(9,32,42,.5); color: var(--text); font-family: inherit; font-size: 14px; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 2px rgba(248,192,0,.2); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-note { font-size: 13px; color: var(--muted); margin-top: 20px; }
+    .form-note a { color: var(--accent); }
+
+    .footer-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .footer-section h3 { margin: 0 0 14px; font-size: 18px; }
+    .footer-section p { margin: 0 0 14px; color: var(--muted); }
+
     @media (max-width: 860px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .process { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 720px) {
       header.hero { padding: 20px 0 40px; }
       .hero-grid { grid-template-columns: 1fr; gap: 28px; }
       .photo { width: 160px; order: -1; }
-      .cards, .skills { grid-template-columns: 1fr; }
+      .cards, .skills, .services, .engagement { grid-template-columns: 1fr; }
+      .process { grid-template-columns: 1fr; }
+      .process-step::after { display: none; }
       .app { grid-template-columns: 1fr; gap: 18px; padding: 16px; }
       .job { grid-template-columns: 1fr; gap: 6px; }
       .edu-item { flex-direction: column; gap: 4px; }
       .links { gap: 16px; }
+      .footer-content { grid-template-columns: 1fr; gap: 28px; }
       #fc-canvas { height: 190px; }
       .fc-card { margin-top: 20px; padding: 14px 12px 10px; }
       .fc-note { margin-left: 0; }
@@ -197,23 +241,28 @@
     <a class="brand" href="#top">Dr. Shanu Dengre</a>
     <div class="links">
       <a href="#about">About</a>
-      <a href="#work">What I do</a>
+      <a href="#freelance">Freelance</a>
       <a href="#apps">Live Demos</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
     </div>
+    <a class="btn" href="#freelance" style="background: var(--gold); color: #05202a; border-color: var(--gold); white-space: nowrap; flex: none;">Hire me</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">AI Engineer · Data Scientist · ML Engineer · PhD Physics</p>
+      <p class="eyebrow">AI Engineer · Data Scientist · Available for Freelance · PhD Physics</p>
       <h1>Dr. Shanu Dengre</h1>
-      <p class="lede">I take machine learning from problem scoping to production — forecasting, computer vision and LLM solutions tuned to each customer's business, running across 300+ locations.</p>
+      <p class="lede">I take machine learning from problem scoping to production — computer vision, time-series forecasting, LLM fine-tuning and agentic workflows. Available for freelance projects or full-time roles.</p>
       <div class="actions">
-        <a class="btn primary" href="assets/Shanu_Dengre_CV.pdf" target="_blank" rel="noopener">
+        <a class="btn primary" href="#freelance">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Hire me for a project
+        </a>
+        <a class="btn" href="assets/Shanu_Dengre_CV.pdf" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
           Download CV
         </a>
@@ -280,27 +329,132 @@
     </div>
   </section>
 
-  <section id="work">
+  <section id="freelance">
     <div class="wrap">
-      <h2>What I work on</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Demand forecasting &amp; decision optimisation</h3>
-          <p>Sales and demand forecasting with DARTS, Nixtla and CHRONOS, plus newsvendor-style ordering that balances margin against stockout risk for each customer.</p>
+      <h2>Freelance — work with me</h2>
+      <p style="color: var(--muted); max-width: 46em; margin: 0 0 28px;">I take on a small number of freelance projects, from first prototype to production. Specialising in computer vision, time-series forecasting, LLM fine-tuning and agentic workflows.</p>
+
+      <div class="services">
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <h3>Computer Vision</h3>
+          <p class="pitch">Detection & segmentation with YOLO-family models and PyTorch. Automated annotation pipelines with SAM and OpenCV. Real-time production inference.</p>
+          <div class="tags"><span class="tag">YOLO</span><span class="tag">PyTorch</span><span class="tag">SAM</span><span class="tag">Real-time</span></div>
+          <p class="proof"><strong>Proof:</strong> Live across 10+ restaurant chains. Labelling time −50%, POS matching 95%+ accuracy. <a href="#experience">See experience ↗</a></p>
         </div>
-        <div class="card">
-          <h3>Computer vision</h3>
-          <p>Food recognition with YOLO-family models and PyTorch, automated annotation with SAM and OpenCV, and real-time POS order matching.</p>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/><polyline points="9 9 12 6 15 9"/><polyline points="15 15 12 18 9 15"/></svg>
+          <h3>Time-Series Forecasting</h3>
+          <p class="pitch">Demand and sales forecasting with DARTS, Nixtla and CHRONOS. Prediction intervals, decision optimisation, and newsvendor-style ordering.</p>
+          <div class="tags"><span class="tag">DARTS</span><span class="tag">Nixtla</span><span class="tag">Forecasting</span><span class="tag">Optimisation</span></div>
+          <p class="proof"><strong>Proof:</strong> +20% accuracy in seasonal peaks, −15% food waste. <a href="https://newsvendorproblem.streamlit.app/" target="_blank" rel="noopener">Try the demo ↗</a></p>
         </div>
-        <div class="card">
-          <h3>LLMs &amp; agentic workflows</h3>
-          <p>Tool-calling LLM agents that automate internal analytics and reporting.</p>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 0h1.42a2 2 0 0 1 1.94 2.5l-.5 2.5h2.1l.5-2.5A2 2 0 0 1 18.41 0h1.42a2 2 0 0 1 1.94 2.5l-1 5M5 8h14M4 14h1M9 14h1M14 14h1M19 14h1M3 18h18v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2Z"/></svg>
+          <h3>Fine-tuning LLMs</h3>
+          <p class="pitch">Domain-specific LLM fine-tuning using LoRA/QLoRA and PEFT. Evaluation sets, deployment behind FastAPI. Transformers and LLM APIs.</p>
+          <div class="tags"><span class="tag">LoRA</span><span class="tag">PEFT</span><span class="tag">Transformers</span><span class="tag">FastAPI</span></div>
+          <p class="proof"><strong>Proof:</strong> Tool-calling agent experience, LLM API integration for production analytics workflows. Custom fine-tuning available on request.</p>
         </div>
-        <div class="card">
-          <h3>Production ML &amp; MLOps</h3>
-          <p>FastAPI microservices on Docker and Kubernetes, CI/CD, MLflow, and Sentry/PowerBI observability for near-zero downtime.</p>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+          <h3>Agentic Workflows</h3>
+          <p class="pitch">LLM tool-calling agents for analytics, reporting and automation. RAG pipelines, function calling, and production guardrails.</p>
+          <div class="tags"><span class="tag">Tool-calling</span><span class="tag">RAG</span><span class="tag">Automation</span><span class="tag">Claude API</span></div>
+          <p class="proof"><strong>Proof:</strong> Internal analytics agents and food-waste reports (−50% manual effort). Ready for production deployment.</p>
         </div>
       </div>
+
+      <h3 style="margin-top: 48px; margin-bottom: 24px;">How I work</h3>
+      <div class="process">
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <h4>Discovery call</h4>
+          <p>Understand your problem, scope and goals</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">2</div>
+          <h4>Scoped proposal</h4>
+          <p>Timeline, deliverables & terms</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <h4>Build &amp; iterate</h4>
+          <p>Weekly updates, feedback loops</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <h4>Deploy &amp; handover</h4>
+          <p>Production setup, monitoring, docs</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: 24px;">Engagement types</h3>
+      <div class="engagement">
+        <div class="engagement-item">
+          <h4>Fixed-scope project</h4>
+          <p>Defined deliverables and timeline, for proof-of-concept through production</p>
+        </div>
+        <div class="engagement-item">
+          <h4>Hourly / retainer</h4>
+          <p>Flexibility month-to-month for ongoing support or rapid iteration</p>
+        </div>
+        <div class="engagement-item">
+          <h4>Advisory & review</h4>
+          <p>Technical reviews, architecture guidance, staff augmentation</p>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom: 4px;">Tell me about your project</h3>
+      <form id="enquiry">
+        <div class="form-group">
+          <label for="enquiry-name">Name *</label>
+          <input type="text" id="enquiry-name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="enquiry-email">Email *</label>
+          <input type="email" id="enquiry-email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="enquiry-service">Service *</label>
+          <select id="enquiry-service" name="service" required>
+            <option value="">Select a service…</option>
+            <option value="computer-vision">Computer Vision</option>
+            <option value="forecasting">Time-Series Forecasting</option>
+            <option value="llm-finetuning">Fine-tuning LLMs</option>
+            <option value="agentic-workflows">Agentic Workflows</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="enquiry-engagement">Engagement type *</label>
+          <select id="enquiry-engagement" name="engagement" required>
+            <option value="">Select engagement type…</option>
+            <option value="fixed-scope">Fixed-scope project</option>
+            <option value="hourly-retainer">Hourly / retainer</option>
+            <option value="advisory">Advisory & review</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="enquiry-timeline">Timeline</label>
+          <select id="enquiry-timeline" name="timeline">
+            <option value="">Select timeline…</option>
+            <option value="urgent">Urgent (start ASAP)</option>
+            <option value="2-weeks">Within 2 weeks</option>
+            <option value="1-month">Within 1 month</option>
+            <option value="flexible">Flexible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="enquiry-details">Project details *</label>
+          <textarea id="enquiry-details" name="details" required></textarea>
+        </div>
+        <button class="btn primary" type="submit">Send enquiry</button>
+      </form>
+      <p class="form-note">This opens your email app with the brief filled in — or just write to <a href="mailto:shanudengre82@gmail.com">shanudengre82@gmail.com</a> · <a href="https://www.linkedin.com/in/shanudengre82/" target="_blank" rel="noopener">LinkedIn</a></p>
     </div>
   </section>
 
@@ -510,12 +664,24 @@
 <footer id="contact">
   <div class="wrap">
     <h2>Let's talk</h2>
-    <p>Open to AI Engineer, Forward Deployed Engineer, ML Engineer and Data Scientist roles.</p>
-    <div class="actions">
-      <a class="btn primary" href="mailto:shanudengre82@gmail.com">Email me</a>
-      <a class="btn" href="https://www.linkedin.com/in/shanudengre82/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/shanudengre82" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="assets/Shanu_Dengre_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Freelance project?</h3>
+        <p>I'm available for computer vision, forecasting, LLM fine-tuning and agentic workflows.</p>
+        <div class="actions">
+          <a class="btn primary" href="#freelance">Start a project</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Hiring for a full-time role?</h3>
+        <p>Open to AI Engineer, Forward Deployed Engineer, ML Engineer and Data Scientist positions.</p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:shanudengre82@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/shanudengre82/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/shanudengre82" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="assets/Shanu_Dengre_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        </div>
+      </div>
     </div>
     <p class="fine">© <span id="year">2026</span> Dr. Shanu Dengre</p>
   </div>
@@ -726,6 +892,39 @@
   resize(); updateReadout();
   for (var s = 0; s < 40; s++) draw(0); // settle the y-range before first paint
   play();
+})();
+</script>
+<script>
+/* Freelance enquiry form: mailto handler */
+(function () {
+  var form = document.getElementById('enquiry');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('enquiry-name').value.trim();
+    var email = document.getElementById('enquiry-email').value.trim();
+    var service = document.getElementById('enquiry-service').value;
+    var engagement = document.getElementById('enquiry-engagement').value;
+    var timeline = document.getElementById('enquiry-timeline').value;
+    var details = document.getElementById('enquiry-details').value.trim();
+
+    if (!name || !email || !service || !engagement || !details) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    var subject = 'Freelance enquiry: ' + service.replace(/-/g, ' ');
+    var body = 'Name: ' + name + '\n' +
+      'Email: ' + email + '\n' +
+      'Service: ' + service.replace(/-/g, ' ') + '\n' +
+      'Engagement: ' + engagement.replace(/-/g, ' ') + '\n' +
+      (timeline ? 'Timeline: ' + timeline.replace(/-/g, ' ') + '\n' : '') +
+      '\n' +
+      'Details:\n' + details;
+
+    var mailtoUrl = 'mailto:shanudengre82@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    location.href = mailtoUrl;
+  });
 })();
 </script>
 </body>
