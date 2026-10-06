@@ -97,9 +97,9 @@
     .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
     .stat b { display: block; font-size: 28px; letter-spacing: -.02em; color: var(--gold); line-height: 1.1; }
     .stat span { font-size: 13px; color: var(--muted); }
-    .stats-cv { margin-top: 14px; grid-template-columns: 1fr 1fr 1fr; }
-    .stat-primary { grid-column: 1 / 2; background: linear-gradient(135deg, rgba(248,192,0,.08), rgba(0,208,232,.03)); border: 1px solid rgba(248,192,0,.3); }
-    .stat-primary b { font-size: 36px; }
+    .stats-cv { margin-top: 28px; }
+    .stat-primary { background: linear-gradient(135deg, rgba(248,192,0,.08), rgba(0,208,232,.03)); border: 1px solid rgba(248,192,0,.3); }
+    .stat-primary b { font-size: 28px; }
     .stat-accent { background: rgba(248,192,0,.08); border: 1px solid rgba(248,192,0,.25); }
 
     .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -308,12 +308,7 @@
       <div class="stat"><b>+20%</b><span>forecast accuracy in holiday &amp; offer seasons</span></div>
       <div class="stat"><b>−15%</b><span>food waste through AI demand forecasting</span></div>
       <div class="stat"><b>300+</b><span>locations served in production</span></div>
-      <div class="stat"><b>10+</b><span>restaurant chains running my vision models</span></div>
-    </div>
-    <div class="stats stats-cv">
-      <div class="stat stat-primary"><b>95%</b><span>POS order-matching accuracy</span></div>
-      <div class="stat"><b>Real-time</b><span>detection &amp; tracking live</span></div>
-      <div class="stat stat-accent"><b>−50%</b><span>annotation time with SAM</span></div>
+      <div class="stat"><b>10+</b><span>restaurant chains running my demand forecasts</span></div>
     </div>
   </div>
   <div class="wrap">
@@ -333,6 +328,16 @@
         <span class="fc-note">Illustrative data · Holt-Winters style model</span>
       </figcaption>
     </figure>
+  </div>
+  <div class="wrap">
+    <div class="stats stats-cv">
+      <div class="stat stat-primary"><b>95%</b><span>POS order-matching accuracy</span></div>
+      <div class="stat"><b>5+</b><span>restaurant chains with object detection &amp; tracking</span></div>
+      <div class="stat"><b>Real-time</b><span>detection, segmentation &amp; tracking</span></div>
+      <div class="stat stat-accent"><b>−50%</b><span>annotation time with SAM</span></div>
+    </div>
+  </div>
+  <div class="wrap">
     <figure class="fc-card cv-card">
       <div class="fc-head">
         <div class="fc-title"><span class="fc-live" aria-hidden="true"></span>Computer vision, live</div>
@@ -378,7 +383,7 @@
         </div>
         <div>
           <h3>Computer Vision</h3>
-          <div class="tags"><span class="tag">YOLO-family</span><span class="tag">OpenCV</span><span class="tag">SAM</span></div>
+          <div class="tags"><span class="tag">YOLO-family</span><span class="tag">OpenCV</span><span class="tag">SAM</span><span class="tag">GStreamer</span><span class="tag">OpenVINO</span></div>
         </div>
         <div>
           <h3>Software &amp; Deployment</h3>
@@ -433,6 +438,7 @@
           <ul>
             <li>Built <b>object detection and tracking</b> with YOLO-family models and PyTorch, deployed across <b>5+ restaurant chains</b>.</li>
             <li>Delivered a <b>live POS order-matching system</b> with <b>95% accuracy</b>.</li>
+            <li>Deployed <b>GStreamer</b> and <b>OpenVINO</b> based inference pipelines on Intel devices, cutting inference time by approximately <b>50%</b>.</li>
             <li>Built automated annotation pipelines with OpenCV and SAM, <b>reducing annotation time by 50%</b>.</li>
           </ul>
         </div>
@@ -573,7 +579,7 @@
           <h3>Computer Vision</h3>
           <p class="pitch">Detection & segmentation with YOLO-family models and PyTorch. Automated annotation pipelines with SAM and OpenCV. Real-time production inference.</p>
           <div class="tags"><span class="tag">YOLO</span><span class="tag">PyTorch</span><span class="tag">SAM</span><span class="tag">Real-time</span></div>
-          <p class="proof"><strong>Proof:</strong> Live across 10+ restaurant chains. Labelling time −50%, POS matching 95%+ accuracy. <a href="#experience">See experience ↗</a></p>
+          <p class="proof"><strong>Proof:</strong> Live across 5+ restaurant chains. Labelling time −50%, POS matching 95%+ accuracy. <a href="#experience">See experience ↗</a></p>
         </div>
 
         <div class="service-card">
