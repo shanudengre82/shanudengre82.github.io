@@ -58,7 +58,6 @@
     nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 16px; }
     .brand { font-weight: 700; color: var(--text); letter-spacing: -.01em; white-space: nowrap; }
     .brand:hover { text-decoration: none; }
-    .brand-roles { font-weight: 500; color: var(--muted); font-size: 14px; }
     .links { display: flex; gap: 22px; font-size: 14px; overflow-x: auto; scrollbar-width: none; }
     .links::-webkit-scrollbar { display: none; }
     .links a { color: var(--muted); white-space: nowrap; }
@@ -164,9 +163,6 @@
     .fc-note { margin-left: auto; font-style: italic; }
     @media (prefers-reduced-motion: reduce) { .fc-live { animation: none; } }
 
-    @media (max-width: 1000px) {
-      .brand-roles { display: none; }
-    }
     @media (max-width: 860px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
     }
@@ -196,7 +192,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">Dr. Shanu Dengre<span class="brand-roles"> · AI Engineer · Data Scientist · ML Engineer</span></a>
+    <a class="brand" href="#top">Dr. Shanu Dengre</a>
     <div class="links">
       <a href="#about">About</a>
       <a href="#work">What I do</a>
@@ -211,7 +207,7 @@
 <header class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">AI Engineer · Data Scientist · PhD Physics</p>
+      <p class="eyebrow">AI Engineer · Data Scientist · ML Engineer · PhD Physics</p>
       <h1>Dr. Shanu Dengre</h1>
       <p class="lede">I take machine learning from problem scoping to production — forecasting, computer vision and LLM solutions tuned to each customer's business, running across 300+ locations.</p>
       <div class="actions">
