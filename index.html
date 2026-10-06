@@ -97,11 +97,10 @@
     .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
     .stat b { display: block; font-size: 28px; letter-spacing: -.02em; color: var(--gold); line-height: 1.1; }
     .stat span { font-size: 13px; color: var(--muted); }
-    .stats-cv { margin-top: 14px; }
-
-    /* KPI chips in experience */
-    .kpis { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-    .kpi { background: rgba(248,192,0,.15); color: #ffd84a; border: 1px solid rgba(248,192,0,.3); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; }
+    .stats-cv { margin-top: 14px; grid-template-columns: 1fr 1fr 1fr; }
+    .stat-primary { grid-column: 1 / 2; background: linear-gradient(135deg, rgba(248,192,0,.08), rgba(0,208,232,.03)); border: 1px solid rgba(248,192,0,.3); }
+    .stat-primary b { font-size: 36px; }
+    .stat-accent { background: rgba(248,192,0,.08); border: 1px solid rgba(248,192,0,.25); }
 
     .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: var(--shadow); transition: border-color .2s ease; }
@@ -155,6 +154,7 @@
 
     /* Live forecast chart */
     .fc-card { margin-left: 0; margin-right: 0; background: rgba(5,32,42,.55); border: 1px solid var(--line); border-radius: 18px; padding: 16px 18px 12px; margin: 28px 0 0; box-shadow: var(--shadow); }
+    .cv-card { border: 1px solid rgba(0,208,232,.35); background: rgba(5,32,42,.7); }
     .fc-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 8px; }
     .fc-title { font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; }
     .fc-live { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(248,192,0,.6); animation: fc-pulse 1.8s infinite; }
@@ -311,10 +311,9 @@
       <div class="stat"><b>10+</b><span>restaurant chains running my vision models</span></div>
     </div>
     <div class="stats stats-cv">
-      <div class="stat"><b>95%</b><span>live POS order-matching accuracy</span></div>
-      <div class="stat"><b>−50%</b><span>annotation time with SAM &amp; OpenCV</span></div>
-      <div class="stat"><b>5+</b><span>restaurant chains with object detection &amp; tracking</span></div>
-      <div class="stat"><b>Real-time</b><span>detection, segmentation &amp; tracking</span></div>
+      <div class="stat stat-primary"><b>95%</b><span>POS order-matching accuracy</span></div>
+      <div class="stat"><b>Real-time</b><span>detection &amp; tracking live</span></div>
+      <div class="stat stat-accent"><b>−50%</b><span>annotation time with SAM</span></div>
     </div>
   </div>
   <div class="wrap">
@@ -410,11 +409,6 @@
         <div>
           <h3>Sr. Data Scientist</h3>
           <p class="role">Demand Forecast Project Lead</p>
-          <div class="kpis">
-            <span class="kpi">300+ locations</span>
-            <span class="kpi">+20% forecast</span>
-            <span class="kpi">−50% manual effort</span>
-          </div>
           <ul>
             <li>Lead the demand forecast project end to end, from customer scoping to features in production across <b>300+ locations</b>.</li>
             <li>Built an <b>in-house newsvendor-based ordering optimiser</b> that tunes forecast quantiles to each customer's margin and stockout risk, minimising food waste without losing sales. <a class="try" href="https://newsvendorproblem.streamlit.app/" target="_blank" rel="noopener">Try the app ↗</a></li>
@@ -429,14 +423,6 @@
         <div class="when"><b>PreciTaste</b>Munich<br>Feb 2022 – Oct 2025</div>
         <div>
           <h3>AI Engineer and Data Scientist</h3>
-          <div class="kpis">
-            <span class="kpi">−15% food waste</span>
-            <span class="kpi">+20% crew efficiency</span>
-            <span class="kpi">−60% query latency</span>
-            <span class="kpi">5+ chains</span>
-            <span class="kpi">95% POS match</span>
-            <span class="kpi">−50% annotation time</span>
-          </div>
           <h4>Time series forecasting — sales and demand</h4>
           <ul>
             <li>Led AI-driven demand forecasting, reducing food waste by <b>15%</b> and improving crew efficiency by <b>20%</b>.</li>
