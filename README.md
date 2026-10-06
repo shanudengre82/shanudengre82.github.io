@@ -31,7 +31,18 @@ Then open http://localhost:8000.
    - Branch: **main** / **(root)**
 
    Then click **Save**.
-4. After 1–2 minutes the site is live at **https://shanudengre82.github.io**. Progress shows under the repo's **Actions** tab.
+4. After 1–2 minutes the site is live at **https://shanudengre82.github.io** (or **https://www.shanudengre.com** once the custom domain below is set up). Progress shows under the repo's **Actions** tab.
+
+## Custom domain (www.shanudengre.com)
+
+The `CNAME` file in the repo root tells GitHub Pages to serve the site on `www.shanudengre.com`. Keep it as a single line. DNS (at Porkbun) must be:
+
+| Type | Host | Value |
+|------|------|-------|
+| CNAME | `www` | `shanudengre82.github.io` |
+| A | `@` | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (four records) |
+
+Remove any default parking records first. Then in the repo's **Settings → Pages**, confirm the custom domain and tick **Enforce HTTPS** once the certificate is issued. The apex `shanudengre.com` redirects to `www`.
 
 ## Updating the site
 
