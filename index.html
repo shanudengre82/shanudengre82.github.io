@@ -88,18 +88,15 @@
     .contact a:hover { color: var(--text); }
     .contact svg { width: 16px; height: 16px; flex: none; }
 
-    /* The forecast band: edge to edge, plot aligned to the content column */
-    .band { margin-top: 48px; background: var(--screen); border-top: 1px solid var(--grid); border-bottom: 1px solid var(--grid); }
-    #fc-canvas { display: block; width: 100%; height: 300px; }
-    .band-status { border-top: 1px solid var(--grid); }
-    .status { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; padding-top: 10px; padding-bottom: 10px; font-size: 13.6px; color: var(--muted); }
+    /* Forecast panel */
+    .hero-panel { margin-top: 44px; }
+    #fc-canvas { display: block; width: 100%; height: 300px; background: var(--screen); }
     .live-title { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-size: 15px; font-weight: 600; }
     .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); animation: pulse 1.8s infinite; }
     @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,208,232,.6); } 70% { box-shadow: 0 0 0 8px rgba(0,208,232,0); } 100% { box-shadow: 0 0 0 0 rgba(0,208,232,0); } }
     .readout { display: flex; flex-wrap: wrap; gap: 2px 18px; font-variant-numeric: tabular-nums; }
     .readout b { color: var(--text); font-weight: 600; }
     .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; }
-    .status .legend { margin-left: auto; }
     .legend span { display: inline-flex; align-items: center; gap: 6px; }
     .legend i { display: inline-block; width: 18px; height: 0; border-top: 2.5px solid; }
     .legend .l-act { border-color: var(--cyan); }
@@ -116,7 +113,7 @@
     .readouts { display: grid; grid-template-columns: repeat(4, 1fr); }
     .readouts > div { padding: 22px 20px 6px; border-left: 1px solid var(--grid); }
     .readouts > div:first-child { border-left: 0; padding-left: 0; }
-    .readouts .num { display: block; font-size: 52px; }
+    .readouts .num { display: block; }
     .readouts span { display: block; margin-top: 8px; max-width: 24ch; font-size: 15px; line-height: 1.4; color: var(--muted); }
 
     /* Panels: only for things that run */
@@ -130,6 +127,7 @@
     .panel .readouts { border-top: 1px solid var(--grid); }
     .panel .readouts > div { padding: 16px 18px 18px; }
     .panel .readouts .num { font-size: 33px; }
+    .hero-panel .readouts .num { font-size: 44px; }
     .note { font-size: 13.6px; color: var(--muted); margin: 10px 0 0; }
 
     /* Sections */
@@ -236,7 +234,6 @@
       .panel .readouts > div:nth-child(3) { padding-left: 18px; }
       .pipeline { grid-template-columns: 1fr 1fr; row-gap: 32px; }
       .pipeline li:nth-child(2)::after { display: none; }
-      .status .legend { margin-left: 0; }
     }
     @media (max-width: 720px) {
       .hero { padding-top: 28px; }
@@ -244,7 +241,7 @@
       .photo { width: 112px; order: -1; }
       #fc-canvas { height: 220px; }
       #cv-canvas { height: 200px; }
-      .readouts .num { font-size: 44px; }
+      .hero-panel .readouts .num { font-size: 36px; }
       .app-body { grid-template-columns: 1fr; gap: 18px; padding: 16px; }
       .job { grid-template-columns: 1fr; gap: 6px; }
       .services, .engagement, .footer-content { grid-template-columns: 1fr; }
@@ -333,28 +330,29 @@
     <img class="photo" src="assets/photo.jpg" alt="Portrait of Dr. Shanu Dengre" width="600" height="701">
   </div>
 
-  <figure class="band" aria-labelledby="fc-title">
-    <canvas id="fc-canvas" role="img" aria-label="Animated chart: daily demand history scrolls in day by day with weekly seasonality, and a 14-day forecast with an 80% uncertainty band is re-computed after each new day."></canvas>
-    <noscript><p class="wrap note">Animated demand forecast chart (needs JavaScript).</p></noscript>
-    <figcaption class="band-status">
-      <div class="wrap status">
+  <div class="wrap">
+    <div class="panel hero-panel" role="figure" aria-labelledby="fc-title">
+      <div class="panel-head">
         <span class="live-title" id="fc-title"><span class="live-dot" aria-hidden="true"></span>Demand forecasting, live</span>
         <span class="readout" id="fc-readout" aria-live="off"><span>Day <b>—</b></span><span>next 14 days</span><span>rolling MAPE <b>—</b></span></span>
-        <span class="legend">
-          <span><i class="l-act"></i>Actual demand</span>
-          <span><i class="l-fc"></i>14-day forecast</span>
-          <span><i class="l-band"></i>80% interval</span>
-          <span><i class="l-old"></i>Earlier forecasts</span>
-        </span>
         <button class="toggle" id="fc-toggle" type="button" aria-pressed="false">Pause</button>
       </div>
-    </figcaption>
-  </figure>
-  <div class="wrap readouts">
-    <div><b class="num">+20%</b><span>forecast accuracy in holiday and offer seasons</span></div>
-    <div><b class="num">−15%</b><span>food waste through demand forecasting</span></div>
-    <div><b class="num">300+</b><span>locations served in production</span></div>
-    <div><b class="num">10+</b><span>restaurant chains running my forecasts</span></div>
+      <canvas id="fc-canvas" role="img" aria-label="Animated chart: daily demand history scrolls in day by day with weekly seasonality, and a 14-day forecast with an 80% uncertainty band is re-computed after each new day."></canvas>
+      <noscript><p class="note">Animated demand forecast chart (needs JavaScript).</p></noscript>
+      <div class="legend">
+        <span><i class="l-act"></i>Actual demand</span>
+        <span><i class="l-fc"></i>14-day forecast</span>
+        <span><i class="l-band"></i>80% interval</span>
+        <span><i class="l-old"></i>Earlier forecasts</span>
+        <span>Illustrative data, Holt-Winters style model</span>
+      </div>
+      <div class="readouts">
+        <div><b class="num">+20%</b><span>forecast accuracy in holiday and offer seasons</span></div>
+        <div><b class="num">−15%</b><span>food waste through demand forecasting</span></div>
+        <div><b class="num">300+</b><span>locations served in production</span></div>
+        <div><b class="num">10+</b><span>restaurant chains running my forecasts</span></div>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -904,20 +902,18 @@
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     var r = canvas.getBoundingClientRect(); W = r.width; Hpx = r.height;
     hist = W < 560 ? 28 : HIST;
-    // Plot area lines up with the page's content column; grid and shading run edge to edge
-    PAD.l = PAD.r = Math.max(W < 480 ? 16 : 20, (W - 1180) / 2 + 20);
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(Hpx * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     draw(lastP);
   }
 
-  var PAD = { l: 8, r: 10, t: 22, b: 22 };
+  var PAD = { l: 12, r: 12, t: 22, b: 22 };
   function draw(p) {
     if (!W) return;
     var today = actual.length - 1, x0 = today - hist + p, span = hist + H;
     var X = function (day) { return PAD.l + (day - x0) / span * (W - PAD.l - PAD.r); };
     var cur = forecasts[forecasts.length - 1];
-    var dStart = Math.max(0, Math.floor(x0 - PAD.l / ((W - PAD.l - PAD.r) / span)) - 1);
+    var dStart = Math.max(0, today - hist - 1);
 
     // Smooth y-range toward the visible data
     var lo = Infinity, hi = -Infinity;
@@ -932,16 +928,16 @@
     // Forecast-zone shading and grid
     var xT = X(today);
     ctx.fillStyle = 'rgba(248,192,0,0.045)';
-    ctx.fillRect(xT, 0, W - xT, Hpx);
+    ctx.fillRect(xT, PAD.t - 6, W - PAD.r - xT, Hpx - PAD.t - PAD.b + 6);
     ctx.strokeStyle = 'rgba(255,255,255,0.07)'; ctx.lineWidth = 1;
-    for (var g = 0; g <= 3; g++) { var gy = PAD.t + g * (Hpx - PAD.t - PAD.b) / 3; ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke(); }
-    for (var wk = today - (today % 7) - 7 * 40; wk <= today + H + 70; wk += 7) {
-      var gx = X(wk); if (gx < 0 || gx > W) continue;
+    for (var g = 0; g <= 3; g++) { var gy = PAD.t + g * (Hpx - PAD.t - PAD.b) / 3; ctx.beginPath(); ctx.moveTo(PAD.l, gy); ctx.lineTo(W - PAD.r, gy); ctx.stroke(); }
+    for (var wk = today - (today % 7) - 63; wk <= today + H; wk += 7) {
+      var gx = X(wk); if (gx < PAD.l || gx > W - PAD.r) continue;
       ctx.beginPath(); ctx.moveTo(gx, PAD.t); ctx.lineTo(gx, Hpx - PAD.b); ctx.stroke();
     }
 
     ctx.save();
-    ctx.beginPath(); ctx.rect(0, 0, W, Hpx); ctx.clip();
+    ctx.beginPath(); ctx.rect(PAD.l, 0, W - PAD.l - PAD.r, Hpx); ctx.clip();
 
     // Earlier forecasts (faint trail)
     for (var k = 0; k < forecasts.length - 1; k++) {
