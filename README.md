@@ -61,7 +61,7 @@ git commit -m "Update website"
 git push
 ```
 
-To refresh the downloadable CV, recompile `CV/Shanu_Dengre_CV.tex`, copy the new `Shanu_Dengre_CV.pdf` into `assets/`, and push.
+The site's only downloadable CV is `assets/Shanu_Dengre_CV.pdf`. To refresh it, move the current file into `cv-archive/` under a dated name (e.g. `Shanu_Dengre_CV_2026-10-14_AI_ML_Engineer.pdf`), copy the new PDF to `assets/Shanu_Dengre_CV.pdf`, and push. `cv-archive/` is gitignored, so old versions stay on your machine and are never published.
 
 ### Freelance enquiry form
 The form on the **Freelance** section uses a `mailto:` link (no backend or third-party service required). When a user submits the form, their browser's email app opens with a pre-filled message to `shanudengre82@gmail.com`. To edit the form fields, email recipient, or freelance services offered, edit the `#enquiry` form in `index.html` (search for "Freelance enquiry form" in the script section for the mailto handler).
