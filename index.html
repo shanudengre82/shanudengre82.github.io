@@ -280,11 +280,11 @@
     <a class="brand" href="#top">Dr. Shanu Dengre</a>
     <div class="links">
       <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#apps">Demos</a>
-      <a href="#pixpicker">PixPicker</a>
       <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
       <a href="#education">Education</a>
+      <a href="#pixpicker">PixPicker</a>
       <a href="#freelance">Freelance</a>
     </div>
     <a class="btn btn-primary btn-sm" href="#freelance">Start a project</a>
@@ -295,7 +295,7 @@
   <div class="wrap hero-top">
     <div>
       <h1>Dr. Shanu Dengre</h1>
-      <p class="role-line">I put machine learning into production and keep it running.</p>
+      <p class="role-line">I build LLM agents and forecasts that run in production.</p>
       <p class="lede">Senior data scientist and AI engineer (generative AI) with 4.5+ years in production machine learning and a PhD in physics. LangGraph LLM agents, RAG, LLM evaluation and demand forecasting, deployed and monitored across 300+ locations. Open to freelance projects and full-time roles.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#freelance">Start a project</a>
@@ -391,6 +391,24 @@
     </div>
   </section>
 
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><h2>Skills</h2></div>
+      <dl class="spec">
+        <div><dt>Generative AI</dt><dd>LLMs, LLM APIs, prompt and context engineering, RAG, LoRA, Hugging Face</dd></div>
+        <div><dt>Agentic AI</dt><dd>LangGraph, LangChain, MCP, tool calling, structured outputs, human-in-the-loop</dd></div>
+        <div><dt>Retrieval and evaluation</dt><dd>Embeddings, vector databases (FAISS, pgvector), reranking, LLM evaluation</dd></div>
+        <div><dt>ML and deep learning</dt><dd>Scikit-learn, XGBoost, LightGBM, PyTorch, TensorFlow/Keras, NLP, spaCy</dd></div>
+        <div><dt>Statistics and forecasting</dt><dd>A/B testing, experimental design, time series, TimesFM, anomaly detection</dd></div>
+        <div><dt>MLOps and cloud</dt><dd>MLflow, Airflow, Docker, Kubernetes, CI/CD, model monitoring, AWS SageMaker, GCP</dd></div>
+        <div><dt>Data and software</dt><dd>Python, SQL, PySpark, Snowflake, PostgreSQL, FastAPI, Kafka, Git, Linux, Agile</dd></div>
+        <div><dt>Computer vision</dt><dd>YOLO-family, DETR, Grounding DINO, RTMDet, CNNs, CLIP, OpenCV, SAM, GStreamer, OpenVINO</dd></div>
+        <div><dt>AI-assisted development</dt><dd>Claude (Claude Code), Gemini, GitHub Copilot</dd></div>
+        <div><dt>Languages</dt><dd>English (fluent), German (A2.2), Hindi (native)</dd></div>
+      </dl>
+    </div>
+  </section>
+
   <section id="experience">
     <div class="wrap">
       <div class="sec-head"><h2>Experience</h2><span class="fact">4.5+ years</span></div>
@@ -465,9 +483,9 @@
     </div>
   </section>
 
-  <section id="apps">
+  <section id="projects">
     <div class="wrap">
-      <div class="sec-head"><h2>Demos</h2><span class="fact">Free to try, no sign-up</span></div>
+      <div class="sec-head"><h2>Projects &amp; Live Demos</h2><span class="fact">Live demos free to try, no sign-up</span></div>
       <div class="stack">
         <article class="panel">
           <header class="panel-head"><h3>AI News Navigator</h3><span class="host">huggingface.co</span></header>
@@ -507,6 +525,38 @@
               <p>Keeping up with AI research, made easier. The app collects fresh papers and posts from arXiv, Hugging Face Daily Papers and leading AI lab blogs. Ask a question and a LangGraph agent plans searches, runs hybrid retrieval (BM25 + FAISS), reranks and grades the candidates, then writes a short cited answer with a "read these first" list. It runs entirely on open-weight models and also works as an MCP server for other agents.</p>
               <p class="built"><b>Built with</b> LangGraph (retrieve, rerank, grade, generate), query-rewrite prompts with arXiv fallback, hybrid search (BM25 + FAISS), bge reranking, open-weight models and Gradio.</p>
               <div class="actions"><a class="btn btn-primary" href="https://huggingface.co/spaces/shanudengre82/ai-news-navigator" target="_blank" rel="noopener">Open the app ↗</a></div>
+            </div>
+          </div>
+        </article>
+        <article class="panel">
+          <header class="panel-head"><h3>MCP Forecast-Drift Alert Tool</h3><span class="host">internal · InterProductTec</span></header>
+          <div class="app-body">
+            <div class="app-art" aria-hidden="true">
+                      <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                        <!-- rolling forecast error drifting above an accuracy threshold, raising an MCP alert -->
+                        <g stroke="rgba(255,255,255,.07)" stroke-width="1">
+                          <line x1="10" y1="50" x2="310" y2="50"/><line x1="10" y1="95" x2="310" y2="95"/><line x1="10" y1="140" x2="310" y2="140"/>
+                        </g>
+                        <line x1="10" y1="80" x2="310" y2="80" stroke="#f8c000" stroke-width="2.5" stroke-dasharray="7 5"/>
+                        <path d="M16 128 L40 120 L64 126 L88 116 L112 122 L136 112 L160 116 L184 104 L208 96" fill="none" stroke="#00d0e8" stroke-width="2.5" stroke-linejoin="round" opacity=".85"/>
+                        <path d="M208 96 L226 80 L244 70 L262 58 L280 62 L300 48" fill="none" stroke="#ff9e2c" stroke-width="2.5" stroke-linejoin="round"/>
+                        <circle cx="226" cy="80" r="11" fill="none" stroke="#ff9e2c" stroke-width="2" stroke-dasharray="4 3"/>
+                        <circle cx="226" cy="80" r="3.5" fill="#ff9e2c"/>
+                        <rect x="222" y="104" width="90" height="26" rx="6" fill="none" stroke="#f8c000" stroke-width="2"/>
+                        <line x1="228" y1="104" x2="226" y2="92" stroke="#f8c000" stroke-width="1.5"/>
+                        <g font-size="11" font-family="Schibsted Grotesk, system-ui, sans-serif" fill="#9fadb0">
+                          <line x1="12" y1="18" x2="30" y2="18" stroke="#00d0e8" stroke-width="2.5"/><text x="35" y="22">rolling MAPE</text>
+                          <line x1="112" y1="18" x2="130" y2="18" stroke="#f8c000" stroke-width="2.5" stroke-dasharray="5 3"/><text x="135" y="22" fill="#ffd84a">accuracy limit</text>
+                          <text x="267" y="121" fill="#ffd84a" text-anchor="middle">MCP → alert</text>
+                          <text x="16" y="164">300+ locations, checked daily</text>
+                        </g>
+                        <line x1="10" y1="150" x2="310" y2="150" stroke="rgba(255,255,255,.25)"/>
+                      </svg>
+                    </div>
+            <div>
+              <p>Forecasts quietly degrade when menus, prices or footfall change. This MCP server watches live forecast accuracy (MAPE/WAPE and bias) across 300+ locations and raises an alert when system accuracy drifts past its limit, before customers notice. Because it speaks MCP, LLM agents can also call it as a tool to check forecast health and explain what changed.</p>
+              <p class="built"><b>Built with</b> MCP, Python, MLflow and Sentry.</p>
+              <div class="badges"><span class="badge">Internal tool, no public demo</span></div>
             </div>
           </div>
         </article>
@@ -599,6 +649,33 @@
     </div>
   </section>
 
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head"><h2>Education and publications</h2></div>
+      <div class="job" id="edu-tud">
+        <div class="when"><b>TU Dresden</b>Oct 2015 – Feb 2021</div>
+        <div>
+          <h3>PhD, Physics</h3>
+          <p class="sub">Publication: <a href="https://doi.org/10.1103/PhysRevB.103.064425" target="_blank" rel="noopener">Phys. Rev. B 103, 064425 (2021)</a></p>
+        </div>
+      </div>
+      <div class="job" id="edu-iiser">
+        <div class="when"><b>IISER Pune</b>Aug 2010 – May 2015</div>
+        <div>
+          <h3>BS-MS, Physics</h3>
+          <p class="sub">Publication: <a href="https://doi.org/10.1103/PhysRevB.95.054401" target="_blank" rel="noopener">Phys. Rev. B 95, 054401 (2017)</a></p>
+        </div>
+      </div>
+      <div class="job" id="edu-lewagon">
+        <div class="when"><b>Le Wagon Berlin</b>Jun 2021 – Sep 2021</div>
+        <div>
+          <h3>Data Science and Machine Learning Bootcamp</h3>
+          <p class="sub">Led project: <a href="https://next-restaurant.onrender.com/" target="_blank" rel="noopener">restaurant location recommender</a> (Python, TensorFlow, NLP, GCP, Streamlit)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="pixpicker">
     <div class="wrap">
       <div class="sec-head"><h2>My product</h2></div>
@@ -650,67 +727,16 @@
     </div>
   </section>
 
-  <section id="skills">
-    <div class="wrap">
-      <div class="sec-head"><h2>Skills</h2></div>
-      <dl class="spec">
-        <div><dt>Generative AI</dt><dd>LLMs, LLM APIs, prompt and context engineering, RAG, LoRA, Hugging Face</dd></div>
-        <div><dt>Agentic AI</dt><dd>LangGraph, LangChain, MCP, tool calling, structured outputs, human-in-the-loop</dd></div>
-        <div><dt>Retrieval and evaluation</dt><dd>Embeddings, vector databases (FAISS, pgvector), reranking, LLM evaluation</dd></div>
-        <div><dt>ML and deep learning</dt><dd>Scikit-learn, XGBoost, LightGBM, PyTorch, TensorFlow/Keras, NLP, spaCy</dd></div>
-        <div><dt>Statistics and forecasting</dt><dd>A/B testing, experimental design, time series, TimesFM, anomaly detection</dd></div>
-        <div><dt>MLOps and cloud</dt><dd>MLflow, Airflow, Docker, Kubernetes, CI/CD, model monitoring, AWS SageMaker, GCP</dd></div>
-        <div><dt>Data and software</dt><dd>Python, SQL, PySpark, Snowflake, PostgreSQL, FastAPI, Kafka, Git, Linux, Agile</dd></div>
-        <div><dt>Computer vision</dt><dd>YOLO-family, DETR, Grounding DINO, RTMDet, CNNs, CLIP, OpenCV, SAM, GStreamer, OpenVINO</dd></div>
-        <div><dt>AI-assisted development</dt><dd>Claude (Claude Code), Gemini, GitHub Copilot</dd></div>
-        <div><dt>Languages</dt><dd>English (fluent), German (A2.2), Hindi (native)</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="wrap">
-      <div class="sec-head"><h2>Education and publications</h2></div>
-      <div class="job" id="edu-tud">
-        <div class="when"><b>TU Dresden</b>Oct 2015 – Feb 2021</div>
-        <div>
-          <h3>PhD, Physics</h3>
-          <p class="sub">Publication: <a href="https://doi.org/10.1103/PhysRevB.103.064425" target="_blank" rel="noopener">Phys. Rev. B 103, 064425 (2021)</a></p>
-        </div>
-      </div>
-      <div class="job" id="edu-iiser">
-        <div class="when"><b>IISER Pune</b>Aug 2010 – May 2015</div>
-        <div>
-          <h3>BS-MS, Physics</h3>
-          <p class="sub">Publication: <a href="https://doi.org/10.1103/PhysRevB.95.054401" target="_blank" rel="noopener">Phys. Rev. B 95, 054401 (2017)</a></p>
-        </div>
-      </div>
-      <div class="job" id="edu-lewagon">
-        <div class="when"><b>Le Wagon Berlin</b>Jun 2021 – Sep 2021</div>
-        <div>
-          <h3>Data Science and Machine Learning Bootcamp</h3>
-          <p class="sub">Led project: <a href="https://next-restaurant.onrender.com/" target="_blank" rel="noopener">restaurant location recommender</a> (Python, TensorFlow, NLP, GCP, Streamlit)</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="freelance">
     <div class="wrap">
       <div class="sec-head"><h2>Freelance projects</h2></div>
-      <p class="intro">I take on a small number of freelance projects, from first prototype to production. Specialising in computer vision, time-series forecasting, LLM fine-tuning and agentic workflows.</p>
+      <p class="intro">I take on a small number of freelance projects, from first prototype to production. Specialising in agentic workflows, LLM fine-tuning, time-series forecasting and computer vision.</p>
       <div class="services">
         <div class="service">
-          <h3>Computer Vision</h3>
-          <p>Detection & segmentation with fine-tuned YOLO-family and DETR/Grounding DINO models in PyTorch. CLIP embeddings for smarter training data, SAM and OpenCV for labelling. Real-time production inference.</p>
-          <p class="built"><b>Built with</b> YOLO, DETR, Grounding DINO, PyTorch, CLIP, SAM</p>
-          <p class="proof"><strong>Proof:</strong> Live across 5+ restaurant chains. Training time <b class="m">−50%</b> with CLIP clustering, POS matching <b class="m">95%+</b> accuracy at <b class="m">&lt;100&nbsp;ms</b>. <a href="#experience">See experience</a></p>
-        </div>
-        <div class="service">
-          <h3>Time-Series Forecasting</h3>
-          <p>Demand and sales forecasting with DARTS, TimesFM and CHRONOS. Hierarchical forecasting, backtests & A/B experiments. Prediction intervals, decision optimisation, newsvendor-style ordering.</p>
-          <p class="built"><b>Built with</b> DARTS, TimesFM, CHRONOS, XGBoost/LightGBM</p>
-          <p class="proof"><strong>Proof:</strong> <b class="m">+20%</b> accuracy in seasonal peaks, <b class="m">−15%</b> food waste. <a href="https://newsvendorproblem.streamlit.app/" target="_blank" rel="noopener">Try the demo ↗</a></p>
+          <h3>Agentic Workflows</h3>
+          <p>LLM tool-calling agents for analytics, reporting and automation. RAG pipelines, function calling, and production guardrails.</p>
+          <p class="built"><b>Built with</b> LangGraph, LangChain, MCP, RAG, Claude API</p>
+          <p class="proof"><strong>Proof:</strong> Production LangGraph agents on vLLM with structured outputs, hallucination guardrails and human-in-the-loop review. <a href="https://huggingface.co/spaces/shanudengre82/ai-news-navigator" target="_blank" rel="noopener">Try the RAG demo ↗</a></p>
         </div>
         <div class="service">
           <h3>Fine-tuning LLMs</h3>
@@ -719,10 +745,16 @@
           <p class="proof"><strong>Proof:</strong> Tool-calling agent experience, LLM API integration for production analytics workflows. Custom fine-tuning available on request.</p>
         </div>
         <div class="service">
-          <h3>Agentic Workflows</h3>
-          <p>LLM tool-calling agents for analytics, reporting and automation. RAG pipelines, function calling, and production guardrails.</p>
-          <p class="built"><b>Built with</b> LangGraph, LangChain, MCP, RAG, Claude API</p>
-          <p class="proof"><strong>Proof:</strong> Production LangGraph agents on vLLM with structured outputs, hallucination guardrails and human-in-the-loop review. <a href="https://huggingface.co/spaces/shanudengre82/ai-news-navigator" target="_blank" rel="noopener">Try the RAG demo ↗</a></p>
+          <h3>Time-Series Forecasting</h3>
+          <p>Demand and sales forecasting with DARTS, TimesFM and CHRONOS. Hierarchical forecasting, backtests & A/B experiments. Prediction intervals, decision optimisation, newsvendor-style ordering.</p>
+          <p class="built"><b>Built with</b> DARTS, TimesFM, CHRONOS, XGBoost/LightGBM</p>
+          <p class="proof"><strong>Proof:</strong> <b class="m">+20%</b> accuracy in seasonal peaks, <b class="m">−15%</b> food waste. <a href="https://newsvendorproblem.streamlit.app/" target="_blank" rel="noopener">Try the demo ↗</a></p>
+        </div>
+        <div class="service">
+          <h3>Computer Vision</h3>
+          <p>Detection & segmentation with fine-tuned YOLO-family and DETR/Grounding DINO models in PyTorch. CLIP embeddings for smarter training data, SAM and OpenCV for labelling. Real-time production inference.</p>
+          <p class="built"><b>Built with</b> YOLO, DETR, Grounding DINO, PyTorch, CLIP, SAM</p>
+          <p class="proof"><strong>Proof:</strong> Live across 5+ restaurant chains. Training time <b class="m">−50%</b> with CLIP clustering, POS matching <b class="m">95%+</b> accuracy at <b class="m">&lt;100&nbsp;ms</b>. <a href="#experience">See experience</a></p>
         </div>
       </div>
 
@@ -756,10 +788,10 @@
             <label for="enquiry-service">Service *</label>
             <select id="enquiry-service" name="service" required>
               <option value="">Select a service…</option>
-              <option value="computer-vision">Computer Vision</option>
-              <option value="forecasting">Time-Series Forecasting</option>
-              <option value="llm-finetuning">Fine-tuning LLMs</option>
               <option value="agentic-workflows">Agentic Workflows</option>
+              <option value="llm-finetuning">Fine-tuning LLMs</option>
+              <option value="forecasting">Time-Series Forecasting</option>
+              <option value="computer-vision">Computer Vision</option>
               <option value="not-sure">Not sure yet</option>
             </select>
           </div>
@@ -802,7 +834,7 @@
     <div class="footer-content">
       <div>
         <h3>Freelance project?</h3>
-        <p>I'm available for computer vision, forecasting, LLM fine-tuning and agentic workflows.</p>
+        <p>I'm available for agentic workflows, LLM fine-tuning, forecasting and computer vision.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#freelance">Start a project</a>
         </div>
